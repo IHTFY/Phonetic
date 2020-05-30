@@ -167,6 +167,7 @@ answerText.addEventListener('change', () => {
   answerText.classList.add('validate');
 
   if (randomLetters.textContent.length) {
+    answerText.value = answerText.value.trim().toLowerCase();
     // validate answer
     const correct = answerText.value === randomLetters.textContent;
     answerText.classList.replace('validate', `${correct ? '' : 'in'}valid`);
