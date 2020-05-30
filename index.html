@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>αβ</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="header center-align unselectable">
+        NATO Phonetic Alphabet
+        <div class="divider"></div>
+      </h1>
+
+      <div class="section">
+        <h3 class="header center-align unselectable">Convert</h3>
+
+        <div class="input-field">
+          <input type="text" id="inputText" />
+          <label class="unselectable" for="inputText">Text to convert</label>
+          <div class="multiline flow-text" id="outputText"></div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <h3 class="header center-align unselectable">Codify</h3>
+
+        <!-- <div class="center-align">
+          <a class="waves-effect waves-light btn-large orange" id="showButton"
+            >Show</a
+          >
+        </div> -->
+
+        <div class="row">
+          <div class="col s8 push-s2">
+            <div class="card blue-grey">
+              <div class="card-content white-text center-align">
+                <div id="intro">
+                  <span class="card-title">Practice</span>
+                  <p>
+                    When you press <code>BEGIN</code>, a letter will appear. Try
+                    to say the phonetic code word as fast as you can.
+                  </p>
+                </div>
+
+                <div class="scale-transition scale-out" id="letterDisplay"></div>
+              </div>
+              <div class="card-action">
+                <div class="center-align">
+                  <a
+                    class="waves-effect waves-orange btn blue-grey"
+                    id="codifyButton"
+                    >Begin</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <h3 class="header center-align unselectable">Transcribe</h3>
+
+        <div class="row">
+          <div class="col s3 l2">
+            <a class="waves-effect waves-light btn-large orange" id="readButton"
+              >Read</a
+            >
+          </div>
+
+          <div class="col s3">
+            <p class="center-align">Speed: <pp id="speedValue"></pp></p>
+            <p class="range-field">
+              <input
+                type="range"
+                id="speedSlider"
+                min="-1"
+                max="1"
+                step="0.01"
+              />
+            </p>
+          </div>
+
+          <div class="col s3">
+            <p class="center-align">Length: <pp id="lengthValue"></pp></p>
+            <p class="range-field">
+              <input type="range" id="lengthSlider" min="1" max="20" step="1" />
+            </p>
+          </div>
+
+          <div class="col s6 input-field">
+            <input type="text" id="answerText" class="validate" />
+            <label class="unselectable" for="answerText"
+              >Your transcription</label
+            >
+            <span class="helper-text" id="transcriptionResult"></span>
+          </div>
+
+          <div
+            class="col s6 multiline flow-text scale-transition scale-out"
+            id="randomLetters"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
