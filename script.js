@@ -135,9 +135,17 @@ inputText.addEventListener('change', () => say(outputText.textContent));
  * Codify
  */
 
+const codifyCard = document.getElementById('codifyCard');
 const codifyButton = document.getElementById('codifyButton');
 const intro = document.getElementById('intro');
 const letterDisplay = document.getElementById('letterDisplay');
+
+// codifyButton.addEventListener('click', () => {
+//   codifyCard.scrollIntoView({
+//     'block': 'center',
+//     'behavior': 'smooth'
+//   });
+// })
 
 codifyButton.addEventListener('click', () => {
   codifyButton.textContent = 'NEXT';
@@ -212,5 +220,8 @@ answerText.addEventListener('change', () => {
     answerText.classList.replace('validate', `${correct ? '' : 'in'}valid`);
     transcriptionResult.setAttribute(`data-${correct ? 'success' : 'error'}`, `${correct ? 'C' : 'Inc'}orrect`);
     randomLetters.classList.replace('scale-out', 'scale-in');
+    answerText.scrollIntoView({
+      'behavior': 'smooth'
+    });
   }
 });
