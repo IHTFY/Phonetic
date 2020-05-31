@@ -63,8 +63,53 @@ const text2NATO = sentence => sentence
   .join('\n');
 
 const pickRandom = arr => arr[Math.floor(Math.random() * arr.length)];
-
 const letters = 'abcdefghijklmnopqrstuvwxyz'.split('');
+
+
+// /**
+//  * Pick letters roughly according to name frequency
+//  */
+// // adjusted from 2012 US baby names
+// const letters = [
+//   ['a', 74],
+//   ['b', 11],
+//   ['c', 16],
+//   ['d', 17],
+//   ['e', 53],
+//   ['f', 5],
+//   ['g', 7],
+//   ['h', 20],
+//   ['i', 44],
+//   ['j', 12],
+//   ['k', 11],
+//   ['l', 40],
+//   ['m', 19],
+//   ['n', 47],
+//   ['o', 27],
+//   ['p', 5],
+//   ['q', 5],
+//   ['r', 33],
+//   ['s', 23],
+//   ['t', 17],
+//   ['u', 8],
+//   ['v', 7],
+//   ['w', 5],
+//   ['x', 5],
+//   ['y', 24],
+//   ['z', 5],
+// ];
+
+// const pickRandom = arr => {
+//   const rand = Math.floor(540 * Math.random());
+//   let count = 0;
+//   for (let letter of letters) {
+//     count += letter[1];
+//     if (count >= rand) return letter[0];
+//   }
+//   return '-'
+// };
+
+
 const generateRandom = length => {
   let word = '';
   for (let i = 0; i < length; i++) {
@@ -89,10 +134,6 @@ inputText.addEventListener('change', () => say(outputText.textContent));
 /**
  * Codify
  */
-// const showButton = document.getElementById('showButton');
-// showButton.addEventListener('click', () => {
-//   M.toast({ html: `<h1>${pickRandom(letters)}</h1>` });
-// })
 
 const codifyButton = document.getElementById('codifyButton');
 const intro = document.getElementById('intro');
@@ -104,8 +145,6 @@ codifyButton.addEventListener('click', () => {
   letterDisplay.textContent = pickRandom(letters).toUpperCase();
   letterDisplay.classList.replace('scale-out', 'scale-in');
   codifyButton.addEventListener('click', () => {
-    // M.Toast.dismissAll();
-    // M.toast({ html: `<h1 class="right-align">${alphabet[letterDisplay.textContent.toLocaleLowerCase()]}</h1>` });
     codifyButton.classList.add('disabled');
     letterDisplay.textContent = alphabet[letterDisplay.textContent.toLocaleLowerCase()];
     setTimeout(() => {

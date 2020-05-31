@@ -42,12 +42,15 @@
                 <div id="intro">
                   <span class="card-title">Practice</span>
                   <p>
-                    When you press <code>BEGIN</code>, a letter will appear. Try
-                    to say the phonetic code word as fast as you can.
+                    When you press <code>BEGIN</code>, a letter will appear.
                   </p>
+                  <p>Try to say the phonetic code word as fast as you can.</p>
                 </div>
 
-                <div class="scale-transition scale-out" id="letterDisplay"></div>
+                <div
+                  class="scale-transition scale-out"
+                  id="letterDisplay"
+                ></div>
               </div>
               <div class="card-action">
                 <div class="center-align">
@@ -95,7 +98,7 @@
             </p>
           </div>
 
-          <div class="col s6 input-field">
+          <div class="col s12 m6 input-field">
             <input type="text" id="answerText" class="validate" />
             <label class="unselectable" for="answerText"
               >Your transcription</label
@@ -103,10 +106,12 @@
             <span class="helper-text" id="transcriptionResult"></span>
           </div>
 
-          <div
-            class="col s6 multiline flow-text scale-transition scale-out"
-            id="randomLetters"
-          ></div>
+          <div class="col s12 m6 right">
+            <p
+              class="flow-text scale-transition scale-out"
+              id="randomLetters"
+            ></p>
+          </div>
         </div>
       </div>
     </div>
