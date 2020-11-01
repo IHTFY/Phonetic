@@ -1,4 +1,8 @@
 M.AutoInit();
+window.onload = function() {
+  var elems  = document.querySelectorAll("input[type=range]");
+  M.Range.init(elems);
+};
 
 /**
  * Common
@@ -15,7 +19,7 @@ const alphabet = {
   8: 'Eight',
   9: 'Nine',
   '-': 'Dash',
-  a: 'Alfa',
+  a: 'Alpha',
   b: 'Bravo',
   c: 'Charlie',
   d: 'Delta',
