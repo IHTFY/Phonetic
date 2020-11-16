@@ -1,6 +1,6 @@
 M.AutoInit();
-window.onload = function() {
-  var elems  = document.querySelectorAll("input[type=range]");
+window.onload = function () {
+  var elems = document.querySelectorAll("input[type=range]");
   M.Range.init(elems);
 };
 
@@ -132,7 +132,11 @@ inputText.addEventListener('input', () => {
   outputText.textContent = text2NATO(inputText.value);
 });
 
-inputText.addEventListener('change', () => say(outputText.textContent));
+inputText.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    say(outputText.textContent)
+  }
+});
 
 
 /**
@@ -194,6 +198,8 @@ lengthSlider.addEventListener('input', () => lengthValue.textContent = lengthSli
 
 const answerText = document.getElementById('answerText');
 const readButton = document.getElementById('readButton');
+const repeatButton = document.getElementById('repeatButton');
+
 readButton.addEventListener('click', () => {
   // clear answer/validation
   randomLetters.classList.replace('scale-in', 'scale-out');
@@ -209,23 +215,29 @@ readButton.addEventListener('click', () => {
   setTimeout(() => randomLetters.textContent = word, 250);
 });
 
+repeatButton.addEventListener('click', () => {
+  say(text2NATO(randomLetters.textContent), +speedValue.textContent);
+});
+
 const randomLetters = document.getElementById('randomLetters');
 const transcriptionResult = document.getElementById('transcriptionResult');
 
 
-answerText.addEventListener('change', () => {
-  answerText.classList.remove('invalid', 'valid');
-  answerText.classList.add('validate');
+answerText.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    answerText.classList.remove('invalid', 'valid');
+    answerText.classList.add('validate');
 
-  if (randomLetters.textContent.length) {
-    answerText.value = answerText.value.trim().toLowerCase();
-    // validate answer
-    const correct = answerText.value === randomLetters.textContent;
-    answerText.classList.replace('validate', `${correct ? '' : 'in'}valid`);
-    transcriptionResult.setAttribute(`data-${correct ? 'success' : 'error'}`, `${correct ? 'C' : 'Inc'}orrect`);
-    randomLetters.classList.replace('scale-out', 'scale-in');
-    answerText.scrollIntoView({
-      'behavior': 'smooth'
-    });
+    if (randomLetters.textContent.length) {
+      answerText.value = answerText.value.trim().toLowerCase();
+      // validate answer
+      const correct = answerText.value === randomLetters.textContent;
+      answerText.classList.replace('validate', `${correct ? '' : 'in'}valid`);
+      transcriptionResult.setAttribute(`data-${correct ? 'success' : 'error'}`, `${correct ? 'C' : 'Inc'}orrect`);
+      randomLetters.classList.replace('scale-out', 'scale-in');
+      answerText.scrollIntoView({
+        'behavior': 'smooth'
+      });
+    }
   }
 });
